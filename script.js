@@ -38,6 +38,17 @@ window.onload = function () {
     fondoNegro.style.alignContent = "center"
     fondoNegro.style.alignItems = "center"
 
+    //creacion de "X"
+    const x = document.createElement("img")
+    x.id = "cerrar"
+    x.src = "media/x.png"
+    x.style.height = "50px"
+    x.style.width = "50px"
+    x.style.position = "absolute"
+    x.style.top = "10px"
+    x.style.left = "96vw"
+    console.log(x)
+
     //funcion para bloquear el scroll
     function functiondisable() {
         TopScroll = window.pageYOffset || document.documentElement.scrollTop;
@@ -59,8 +70,9 @@ window.onload = function () {
         fotoSeleccionada.style.maxHeight = "80vh"
         body.appendChild(fondoNegro)
         fondoNegro.appendChild(fotoSeleccionada)
+        fondoNegro.appendChild(x)
         functiondisable()
-        fondoNegro.addEventListener("click", ()=>{
+        x.addEventListener("click", ()=>{
             fondoNegro.removeChild(fotoSeleccionada)
             fondoNegro.parentElement.removeChild(fondoNegro)
            functionenable()
