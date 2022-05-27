@@ -1,27 +1,10 @@
 window.onload = function () {
-    
+
     //seleccion del body
     const body = document.querySelector("#bodies")
 
-    //seleccion de titulo y el div "imagenes"
-    const titulo = document.querySelector("#titulo")
-    const imagenes = document.querySelector(".imagenes")
-
-    //seleccion de cada foto de rimuru
-    const fotoRimuru1 = document.querySelector("#rimuru1")
-    const fotoRimuru2 = document.querySelector("#rimuru2")
-    const fotoRimuru3 = document.querySelector("#rimuru3")
-    const fotoRimuru4 = document.querySelector("#rimuru4")
-    const fotoRimuru5 = document.querySelector("#rimuru5")
-    const fotoRimuru6 = document.querySelector("#rimuru6")
-    const fotoRimuru7 = document.querySelector("#rimuru7")
-    const fotoRimuru8 = document.querySelector("#rimuru8")
-    const fotoRimuru9 = document.querySelector("#rimuru9")
-    const fotoRimuru10 = document.querySelector("#rimuru10")
-    const fotoRimuru11 = document.querySelector("#rimuru11")
-    const fotoRimuru12 = document.querySelector("#rimuru12")
-    const fotoRimuru13 = document.querySelector("#rimuru13")
-    console.log(window.innerHeight)
+    // Seleccion de todas las fotos
+    const fotosRimuru = document.querySelectorAll(".imagen")
     
     //creacion de fondo negro
     const fondoNegro = document.createElement("div")
@@ -41,29 +24,28 @@ window.onload = function () {
     //creacion de "X"
     const x = document.createElement("img")
     x.id = "cerrar"
-    x.src = "media/x.png"
-    x.style.height = "50px"
-    x.style.width = "50px"
+    x.src = "media/x-solid.png"
+    x.style.height = "40px"
+    x.style.width = "auto"
     x.style.position = "absolute"
     x.style.top = "10px"
-    x.style.left = "96vw"
-    console.log(x)
+    x.style.right = "30px"
 
     //funcion para bloquear el scroll
-    function functiondisable() {
+    function functionDisable() {
         TopScroll = window.pageYOffset || document.documentElement.scrollTop;
         LeftScroll = window.pageXOffset || document.documentElement.scrollLeft,
         
         window.onscroll = function() {
         window.scrollTo(LeftScroll, TopScroll);
                 };
-        }
+    }
+
     //funcion para desbloquear el scroll    
-    function functionenable() {window.onscroll = function() {};}
+    function functionEnable() {window.onscroll = function() {};}
 
     //funcion de click en foto
     function clickOnPhoto(foto) {
-        console.log(foto.src)
         let fotoSeleccionada = document.createElement("img")
         fotoSeleccionada.src = foto.src
         fotoSeleccionada.style.maxWidth = "80vw"
@@ -71,28 +53,19 @@ window.onload = function () {
         body.appendChild(fondoNegro)
         fondoNegro.appendChild(fotoSeleccionada)
         fondoNegro.appendChild(x)
-        functiondisable()
+        functionDisable()
         x.addEventListener("click", ()=>{
             fondoNegro.removeChild(fotoSeleccionada)
             fondoNegro.parentElement.removeChild(fondoNegro)
-           functionenable()
+           functionEnable()
         })
     }
-    
-    //event listeners para cada foto de rimuru
-    fotoRimuru1.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru1)})
-    fotoRimuru2.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru2)})
-    fotoRimuru3.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru3)})
-    fotoRimuru4.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru4)})
-    fotoRimuru5.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru5)})
-    fotoRimuru6.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru6)})
-    fotoRimuru7.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru7)})
-    fotoRimuru8.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru8)})
-    fotoRimuru9.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru9)})
-    fotoRimuru10.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru10)})
-    fotoRimuru11.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru11)})
-    fotoRimuru12.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru12)})
-    fotoRimuru13.addEventListener("click", ()=>{clickOnPhoto(fotoRimuru13)})
 
+    // event listener para las fotos de rimuru
+    fotosRimuru.forEach((item)=>{
+        item.addEventListener("click", (item)=>{
+            clickOnPhoto(item.target)
+        })
+    })
     
 }
