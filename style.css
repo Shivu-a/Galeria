@@ -7,50 +7,71 @@
     font-family: meriweather;
     src: url(media/Merriweather-Black.ttf);
 }
+
 body{
     background: linear-gradient(135deg, #0fbcec 25%, transparent 25%) -51px 0/ 102px 102px, linear-gradient(225deg, rgba(15,188,236,0.5) 25%, transparent 25%) -51px 0/ 102px 102px, linear-gradient(315deg, #0fbcec 25%, transparent 25%) 0 0/ 102px 102px, linear-gradient(45deg, rgba(15,188,236,0.5) 25%, #56e2c8 25%) 0 0/ 102px 102px;
     background-color: #56e2c8;
 }
-#titulo{
+
+.content{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.titulo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e1e;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.titulo h1{
     text-align: center;
     font-size: 3rem;
     color: white;
     font-family: meriweather;
     font-weight: bolder;
-    background-color: rgba(0, 0, 0, 0.4);
     height: 10vh;
 }
-.foto:hover{
-    cursor: pointer;
-}
+
 .imagenes{
-    /*align-content: center;*/
-    display: grid;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    gap: 10px;
-    justify-content: center;
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    
 }
 .imagenes>img{
-    align-self: center;
+    margin: 10px;
     max-height: 300px;
     max-width: 400px;
     cursor: pointer;
-    border: 3px solid whitesmoke;
-    transition: transform 0.5s, border-radius 0.5s;
+    border: 3px solid white;
+    border-radius: 5%;
+    box-shadow: 0px 0px 10px 1px black;
+    transition: transform 0.3s, border-radius 0.3s;
     
 }
 .imagenes>img:hover{
     transform: scale(1.1);
-    border: 3px solid yellow;
-    border-radius: 5%;
+    border: 3px solid #1e1e1e;
+    border-radius: 0%;
     filter: brightness(0.852);
 }
-#bottom{
-    height: 5vh;
-    background-color: rgba(0, 0, 0, 0.4);
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 20px 0px;
+    margin-top: 20px;
+}
+
+footer h1{
+    color: white;
+    font-family: meriweather;
 }
