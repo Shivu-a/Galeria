@@ -99,7 +99,7 @@ window.onload = function () {
                 dataImagen = 1
             }
 
-            fotoSeleccionada.src = `http://127.0.0.1:5500/media/Imagenes/${Number(dataImagen)}.jpg`
+            fotoSeleccionada.src = `https://shivu-a.github.io/Galeria/media/Imagenes/${Number(dataImagen)}.jpg`
 
             fondoNegro.removeChild(flechaDerecha)
             fondoNegro.appendChild(fotoSeleccionada)
@@ -116,7 +116,7 @@ window.onload = function () {
                 dataImagen = 16
             }
 
-            fotoSeleccionada.src = `http://127.0.0.1:5500/media/Imagenes/${Number(dataImagen)}.jpg`
+            fotoSeleccionada.src = `https://shivu-a.github.io/Galeria/media/Imagenes/${Number(dataImagen)}.jpg`
 
             fondoNegro.removeChild(flechaDerecha)
             fondoNegro.appendChild(fotoSeleccionada)
