@@ -52,12 +52,13 @@ function functionDisable() {
 //funcion para desbloquear el scroll    
 function functionEnable() {window.onscroll = function() {};}
 
+// window onload
 window.onload = function () {
     //seleccion del body
     const body = document.querySelector("body")
 
     // Seleccion de todas las fotos
-    const fotos = document.querySelectorAll(".imagen")
+    const fotos = document.querySelectorAll("[data-imagen]")
 
     // event listener para las fotos
     fotos.forEach((item)=>{
@@ -65,11 +66,18 @@ window.onload = function () {
             clickOnPhoto(item.target)
         })
     })
-    
-    
+
+    //get dataAtribute
+    function getDataImagen(foto) {
+        return foto.getAttribute("data-imagen")
+    }
+
     //funcion de click en foto
     function clickOnPhoto(foto) {
         let fotoSeleccionada = document.createElement("img")
+
+        var dataImagen = Number(getDataImagen(foto))
+
         fotoSeleccionada.src = foto.src
         fotoSeleccionada.style.maxWidth = "80vw"
         fotoSeleccionada.style.maxHeight = "80vh"
@@ -80,6 +88,40 @@ window.onload = function () {
         fondoNegro.appendChild(flechaDerecha)
         fondoNegro.appendChild(x)
         functionDisable()
+
+        flechaDerecha.addEventListener("click", ()=>{
+            fondoNegro.removeChild(fotoSeleccionada)
+
+            if (dataImagen < 16) {
+                dataImagen+=1
+            }
+            else{
+                dataImagen = 1
+            }
+
+            fotoSeleccionada.src = `http://127.0.0.1:5500/media/Imagenes/${Number(dataImagen)}.jpg`
+
+            fondoNegro.removeChild(flechaDerecha)
+            fondoNegro.appendChild(fotoSeleccionada)
+            fondoNegro.appendChild(flechaDerecha)
+        })
+
+        flechaIzquierda.addEventListener("click", ()=>{
+            fondoNegro.removeChild(fotoSeleccionada)
+
+            if (dataImagen > 1) {
+                dataImagen-=1
+            }
+            else{
+                dataImagen = 16
+            }
+
+            fotoSeleccionada.src = `http://127.0.0.1:5500/media/Imagenes/${Number(dataImagen)}.jpg`
+
+            fondoNegro.removeChild(flechaDerecha)
+            fondoNegro.appendChild(fotoSeleccionada)
+            fondoNegro.appendChild(flechaDerecha)
+        })
 
         x.addEventListener("click", ()=>{
             fondoNegro.removeChild(fotoSeleccionada)
