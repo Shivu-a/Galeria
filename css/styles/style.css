@@ -4,11 +4,6 @@
     padding: 0;
 }
 
-@font-face {
-    font-family: meriweather;
-    src: url(media/Merriweather-Black.ttf);
-}
-
 ::-webkit-scrollbar {
     background: rgba(0, 0, 0, 0.9);
 }
@@ -93,10 +88,20 @@ body {
     filter: opacity(1)
 }
 
+#cerrar {
+    filter: opacity(0.2);
+    transition: all 250ms;
+}
+
+#cerrar:hover {
+    filter: opacity(1);
+}
+
 footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     background-color: #1e1e1e;
     padding: 20px 0px;
@@ -106,7 +111,15 @@ footer {
 
 footer h1 {
     color: white;
-    font-family: meriweather;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 5px;
+}
+
+footer p {
+    color: white;
+    font-family: sans-serif;
+    margin: 15px;
 }
 
 @media screen and (max-width: 900px) {
@@ -118,5 +131,9 @@ footer h1 {
     footer {
         text-align: center;
         font-size: 10px;
+    }
+
+    #fondoNegro {
+        flex-direction: column;
     }
 }
