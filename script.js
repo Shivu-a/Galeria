@@ -8,7 +8,7 @@ fondoNegro.style.height = "100vh"
 fondoNegro.style.display = "flex"
 fondoNegro.style.top = window.pageYOffset+"px"
 fondoNegro.style.left = window.pageXOffset+"px"
-fondoNegro.style.justifyContent = "center"
+fondoNegro.style.justifyContent = "space-evenly"
 fondoNegro.style.alignItems = "center"
 
 //creacion de "X"
@@ -21,6 +21,23 @@ x.style.color = "white"
 x.style.position = "absolute"
 x.style.top = "10px"
 x.style.right = "30px"
+
+
+//creacion de las flechas izquierda y derecha
+const flechaIzquierda = document.createElement("i")
+flechaIzquierda.id = "flechaIzquierda"
+flechaIzquierda.className = "fa-solid fa-arrow-left"
+flechaIzquierda.style.fontSize = "80px"
+flechaIzquierda.style.fontFamily = "initial !important"
+flechaIzquierda.style.color = "white"
+
+const flechaDerecha = document.createElement("i")
+flechaDerecha.id = "flechaDerecha"
+flechaDerecha.className = "fa-solid fa-arrow-right"
+flechaDerecha.style.fontSize = "80px"
+flechaDerecha.style.fontFamily = "initial !important"
+flechaDerecha.style.color = "white"
+
 
 //funcion para bloquear el scroll
 function functionDisable() {
@@ -56,10 +73,14 @@ window.onload = function () {
         fotoSeleccionada.src = foto.src
         fotoSeleccionada.style.maxWidth = "80vw"
         fotoSeleccionada.style.maxHeight = "80vh"
+        fotoSeleccionada.style.border = "1px solid white"
         body.appendChild(fondoNegro)
+        fondoNegro.appendChild(flechaIzquierda)
         fondoNegro.appendChild(fotoSeleccionada)
+        fondoNegro.appendChild(flechaDerecha)
         fondoNegro.appendChild(x)
         functionDisable()
+
         x.addEventListener("click", ()=>{
             fondoNegro.removeChild(fotoSeleccionada)
             fondoNegro.parentElement.removeChild(fondoNegro)
