@@ -23,7 +23,9 @@ body{
 }
 
 .content{
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.65);
+    padding-top: 50px;
+    width: 100%;
 }
 
 
@@ -65,7 +67,7 @@ body{
 }
 .conteinerImagenes>img:hover{
     transform: scale(1.1);
-    border: 3px solid rgb(134, 120, 88);
+    border: 3px solid gold;
     border-radius: 0%;
     filter: brightness(0.852);
 }
@@ -77,10 +79,23 @@ footer{
     align-items: center;
     background-color: #1e1e1e;
     padding: 20px 0px;
-    margin-top: 20px;
+    margin-top: 50px;
+    box-shadow: 0px 0px 20px 10px black;
 }
 
 footer h1{
     color: white;
     font-family: meriweather;
+}
+
+@media screen and (max-width: 900px) {
+    .conteinerImagenes>img{
+        max-width: 90%;
+        margin: 10px;
+    }
+
+    footer{
+        text-align: center;
+        font-size: 10px;
+    }
 }
