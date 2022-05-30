@@ -136,4 +136,9 @@ footer p {
     #fondoNegro {
         flex-direction: column;
     }
+
+    #fondoNegro>img {
+        max-width: 99vw !important;
+
+    }
 }
